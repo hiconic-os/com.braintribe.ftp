@@ -11,11 +11,14 @@
 // ============================================================================
 package com.braintribe.transport.ftp.enums;
 
+import com.braintribe.model.generic.base.EnumBase;
+import com.braintribe.model.generic.reflection.EnumType;
+import com.braintribe.model.generic.reflection.EnumTypes;
 
 /**
  *
  */
-public enum ClientMode {
+public enum ClientMode implements EnumBase {
 	/**
 	 * A constant indicating the FTP session is expecting all transfers
 	 * to occur between the client (local) and server and that the server
@@ -48,5 +51,14 @@ public enum ClientMode {
 	 * server to connect to the first server's data port to initiate a data
 	 * transfer.
 	 **/
-	PASSIVE_REMOTE,
+	PASSIVE_REMOTE,;
+
+	
+	public static final EnumType T = EnumTypes.T(ClientMode.class);
+
+	@Override
+	public EnumType type() {
+		return T;
+	}
+	
 }

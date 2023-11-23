@@ -11,11 +11,24 @@
 // ============================================================================
 package com.braintribe.transport.ftp.enums;
 
+import com.braintribe.model.generic.base.EnumBase;
+import com.braintribe.model.generic.reflection.EnumType;
+import com.braintribe.model.generic.reflection.EnumTypes;
 
 /**
  */
-public enum SourcePostProcessing {
+public enum SourcePostProcessing implements EnumBase {
 	none,
 	move,
 	delete,
+	;
+	
+	public static final EnumType T = EnumTypes.T(SourcePostProcessing.class);
+
+	@Override
+	public EnumType type() {
+		return T;
+	}
+
+	
 }

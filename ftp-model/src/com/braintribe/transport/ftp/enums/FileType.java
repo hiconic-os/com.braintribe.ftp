@@ -11,10 +11,14 @@
 // ============================================================================
 package com.braintribe.transport.ftp.enums;
 
+import com.braintribe.model.generic.base.EnumBase;
+import com.braintribe.model.generic.reflection.EnumType;
+import com.braintribe.model.generic.reflection.EnumTypes;
+
 /**
  *
  */
-public enum FileType {
+public enum FileType implements EnumBase {
     /***
      * A constant used to indicate the file(s) being transfered should
      * be treated as ASCII.  This is the default file type.  All constants
@@ -46,7 +50,7 @@ public enum FileType {
      ***/
     LOCAL(3);
 
-    private int arg;
+    private final int arg;
 	
 	FileType(int arg) {
 		this.arg = arg;
@@ -55,4 +59,12 @@ public enum FileType {
 	public int getFileType() {
 		return this.arg;
 	}
+
+	public static final EnumType T = EnumTypes.T(FileType.class);
+
+	@Override
+	public EnumType type() {
+		return T;
+	}
+
 }

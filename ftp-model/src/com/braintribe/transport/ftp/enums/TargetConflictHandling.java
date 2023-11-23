@@ -11,10 +11,23 @@
 // ============================================================================
 package com.braintribe.transport.ftp.enums;
 
+import com.braintribe.model.generic.base.EnumBase;
+import com.braintribe.model.generic.reflection.EnumType;
+import com.braintribe.model.generic.reflection.EnumTypes;
+
 /**
  */
-public enum TargetConflictHandling {
+public enum TargetConflictHandling implements EnumBase {
 	overwrite,
 	rename,
 	error,
+	;
+
+	public static final EnumType T = EnumTypes.T(TargetConflictHandling.class);
+
+	@Override
+	public EnumType type() {
+		return T;
+	}
+
 }
